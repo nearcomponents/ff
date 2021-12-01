@@ -18,8 +18,10 @@ pub use bitvec::view::BitViewSized;
 use bitvec::{array::BitArray, order::Lsb0};
 use core::fmt;
 use core::ops::{Add, AddAssign, Mul, MulAssign, Neg, Sub, SubAssign};
-use rand_core::RngCore;
 use subtle::{ConditionallySelectable, CtOption};
+
+#[cfg(feature = "rand_core")]
+use rand_core::RngCore;
 
 /// Bit representation of a field element.
 #[cfg(feature = "bits")]
@@ -52,6 +54,7 @@ pub trait Field:
     + for<'a> AddAssign<&'a Self>
     + for<'a> SubAssign<&'a Self>
 {
+    #[cfg(feature = "rand_core")]
     /// Returns an element chosen uniformly at random using a user-provided RNG.
     fn random(rng: impl RngCore) -> Self;
 

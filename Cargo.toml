@@ -17,7 +17,7 @@ edition = "2018"
 bitvec = { version = "0.22", default-features = false, optional = true }
 byteorder = { version = "1", default-features = false, optional = true }
 ff_derive = { version = "0.10", path = "ff_derive", optional = true }
-rand_core = { version = "0.6", default-features = false }
+rand_core = { version = "0.6", default-features = false, optional = true }
 subtle = { version = "2.2.1", default-features = false, features = ["i128"] }
 
 [features]
